@@ -15,20 +15,26 @@ export const CardJob = () => {
         <Text opacity={0.6}>{index + 1}</Text>
         <Text fontWeight={600}>{objJob.jobTitle}</Text>
         <Box>
-          <Text>PRAZO</Text>
+          <Text opacity={0.6} fontWeight={400}>
+            PRAZO
+          </Text>
           <Text fontWeight={600}>{objJob.timeToFinish}</Text>
         </Box>
         <Box>
-          <Text>VALOR</Text>
+          <Text opacity={0.6} fontWeight={400}>
+            VALOR
+          </Text>
           <Text fontWeight={600}>R${objJob.price}</Text>
         </Box>
         <Text>{objJob.status}</Text>
-        <Button>
-          <EditIcon />
-        </Button>
-        <Button>
-          <DeleteIcon />
-        </Button>
+        <Flex gap={2}>
+          <Button>
+            <EditIcon />
+          </Button>
+          <Button>
+            <DeleteIcon />
+          </Button>
+        </Flex>
       </Flex>
     </Card>
   ));
