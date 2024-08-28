@@ -1,24 +1,40 @@
-import React, { useState } from 'react';
-import { Button, FormControl, FormLabel, Input, Box, Heading, Text, VStack } from '@chakra-ui/react';
+import React, { useState } from "react";
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Box,
+  Heading,
+  Text,
+  VStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import CustomLink from "../../components/Link";
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Aqui você pode adicionar a lógica para autenticação
-    if (username === 'admin' && password === 'password') {
-      alert('Login bem-sucedido!');
+    if (username === "admin" && password === "password") {
+      alert("Login bem-sucedido!");
       setError(null);
     } else {
-      setError('Nome de usuário ou senha incorretos');
+      setError("Nome de usuário ou senha incorretos");
     }
   };
 
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" height="100vh" bg="gray.100">
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      height="100vh"
+    >
       <VStack
         as="form"
         spacing={4}
@@ -28,12 +44,20 @@ const Login: React.FC = () => {
         borderWidth={1}
         borderRadius="md"
         boxShadow="md"
-        bg="white"
+        bg={useColorModeValue("gray.300", "gray.700")}
         onSubmit={handleSubmit}
       >
-        <Heading as="h2" size="lg">Login</Heading>
+        <Heading as="h2" fontSize={"xx-large"}>
+          Acessar FreelaTime
+        </Heading>
+        <Text fontWeight={600}>
+          Novo por aqui?
+          <CustomLink routerTo="/create-account" linkColor="purple.500">
+            Crie uma conta
+          </CustomLink>
+        </Text>
         <FormControl id="username" isRequired>
-          <FormLabel>Nome de Usuário</FormLabel>
+          <FormLabel>Usuário ou Email</FormLabel>
           <Input
             type="text"
             value={username}
@@ -48,8 +72,14 @@ const Login: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </FormControl>
-        {error && <Text color="red.500">{error}</Text>}
-        <Button type="submit" colorScheme="teal" width="full">Entrar</Button>
+        {error && (
+          <Text color="red.500" fontWeight={700}>
+            {error}
+          </Text>
+        )}
+        <Button type="submit" width="full">
+          Entrar
+        </Button>
       </VStack>
     </Box>
   );
