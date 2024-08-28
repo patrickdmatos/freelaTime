@@ -8,9 +8,9 @@ import {
   Heading,
   Text,
   VStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
-import { Link as ChakraLink } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
+import CustomLink from "../../components/Link";
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState<string>("");
@@ -46,7 +46,7 @@ const Register: React.FC = () => {
         borderWidth={1}
         borderRadius="md"
         boxShadow="md"
-        bg="white"
+        bg={useColorModeValue("gray.200", "gray.700")}
         onSubmit={handleSubmit}
       >
         <Heading as="h2" fontSize={"xx-large"}>
@@ -54,15 +54,9 @@ const Register: React.FC = () => {
         </Heading>
         <Text fontWeight={600}>
           Já tem uma conta?
-          <ChakraLink
-            as={RouterLink}
-            to="/login"
-            color="purple.500"
-            fontWeight="bold"
-            ml={1}
-          >
+          <CustomLink routerTo={"/login"} linkColor={"purple.400"}>
             Faça login
-          </ChakraLink>
+          </CustomLink>
         </Text>
         <FormControl id="username" isRequired>
           <FormLabel>Usuário</FormLabel>
