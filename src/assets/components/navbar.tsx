@@ -1,5 +1,7 @@
-import { InfoOutlineIcon } from "@chakra-ui/icons";
+import { TimeIcon } from "@chakra-ui/icons";
 import { Card, Divider, Flex, Image, Text } from "@chakra-ui/react";
+import { CardJob } from "./CardJob";
+import { ResumoJobInfos } from "./Cardinfos";
 
 export const Navbar = () => {
   return (
@@ -20,10 +22,11 @@ export const HomeNavbar = () => {
       paddingInline={"4rem"}
       paddingBlock={"1.1rem"}
       bgColor={"#41414C"}
+      color={"gray.100"}
       flexDir={"column"}
       rounded={"none"}
       w={"100vw"}
-      h={"24vh"}
+      h={"18rem"}
       top={0}
     >
       <Flex justifyContent={"space-between"}>
@@ -33,13 +36,24 @@ export const HomeNavbar = () => {
           border={"1px solid purple"}
           src="../../../../public/vite.svg"
         ></Image>
-        <Flex gap={2}>
-          <InfoOutlineIcon color={"yellow.400"} w={6} h={6} />
-          <Text>Você tem {FreeHours} livres no seu dia</Text>
+        <Flex
+          alignItems={"center"}
+          textAlign={"center"}
+          justifyContent={"center"}
+          w={"100%"}
+          gap={2}
+        >
+          <TimeIcon color={"yellow.400"} w={6} h={6} />
+          <Text>Você tem {FreeHours} horas livres no seu dia</Text>
         </Flex>
 
         <Flex gap={4}>
-          <Flex flexDir={"column"} alignItems={"start"} w={"4rem"} h={"0.6rem"}>
+          <Flex
+            flexDir={"column"}
+            alignItems={"start"}
+            w={"6.5rem"}
+            h={"0.6rem"}
+          >
             <Text fontWeight={600} fontSize={"large"}>
               Patrick
             </Text>
@@ -55,7 +69,9 @@ export const HomeNavbar = () => {
           ></Image>
         </Flex>
       </Flex>
-      <Divider mt={4} />
+      <Divider marginBlock={6} />
+      <ResumoJobInfos />
+      <CardJob />
     </Flex>
   );
 };
