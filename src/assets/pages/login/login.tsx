@@ -9,6 +9,7 @@ import {
   Text,
   VStack,
   useColorModeValue,
+  useToast,
 } from "@chakra-ui/react";
 import CustomLink from "../../components/Link";
 import { useNavigate } from "react-router-dom";
@@ -20,16 +21,24 @@ const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   const { login } = useAuth();
+  const toast = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Aqui você pode adicionar a lógica para autenticação
     if (username === "admin" && password === "password") {
-      alert("Login bem-sucedido!");
       setError(null);
       login();
       navigate("/home");
     } else {
+      toast({
+        title: "Acesso negado",
+        description: "Digite as credenciais corretas ou crie uma conta.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top-right",
+      });
       setError("Nome de usuário ou senha incorretos");
     }
   };

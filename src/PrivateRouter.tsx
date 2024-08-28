@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 interface PrivateRouteProps {
@@ -8,9 +8,14 @@ interface PrivateRouteProps {
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
   const { isAuthenticated } = useAuth();
-  console.log(isAuthenticated);
+  const location = useLocation();
 
-  return isAuthenticated ? element : <Navigate to="/login" />;
+  const token = sessionStorage.getItem("tokenSession");
+  if (token !== sessionStorage.getItem("tokenSession") || !isAuthenticated) {
+    return <Navigate to="/login" state={{ from: location }} />;
+  }
+
+  return element;
 };
 
 export default PrivateRoute;
