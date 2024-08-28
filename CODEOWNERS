@@ -1,0 +1,16 @@
+# Defina os responsáveis por diretórios ou arquivos específicos
+# Caminho/Arquivo @usuario ou @organização/equipe
+
+# Exemplo para um diretório
+/src/ @patrickdmatos
+
+# Exemplo para um arquivo específico
+# /caminho/para/arquivo.txt @usuario1
+
+# Exemplo para todos os arquivos com uma extensão específica
+*.ts @patrickdmatos
+*.tsx @patrickdmatos
+*.json @patrickdmatos
+
+# Exemplo para todos os arquivos no repositório
+#* @usuario3
