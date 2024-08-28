@@ -7,12 +7,11 @@ import {
 import Login from "./assets/pages/login/login";
 import Register from "./assets/pages/register/register";
 import PrivateRoute from "./PrivateRouter";
-import { AuthProvider, useAuth } from "./AuthContext";
+import { AuthProvider } from "./AuthContext";
 import { Home } from "./assets/pages/Authenticated/Home/Home";
-import { Navigate } from "react-router-dom";
 
 // Define as rotas com proteção condicional
-const createRoutes = (isAuthenticated: boolean): RouteObject[] => [
+const createRoutes = (): RouteObject[] => [
   {
     path: "/",
     element: <Login />,
@@ -46,8 +45,7 @@ function App() {
 }
 
 const AppRoutes: React.FC = () => {
-  const { isAuthenticated } = useAuth(); // Acesse o estado de autenticação
-  const routes = createRoutes(isAuthenticated);
+  const routes = createRoutes();
   const router = createBrowserRouter(routes);
 
   return <RouterProvider router={router} />;

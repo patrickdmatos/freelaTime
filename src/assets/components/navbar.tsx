@@ -1,5 +1,5 @@
 import { InfoOutlineIcon } from "@chakra-ui/icons";
-import { Box, Card, Divider, Flex, Image, Text } from "@chakra-ui/react";
+import { Card, Divider, Flex, Image, Text } from "@chakra-ui/react";
 
 export const Navbar = () => {
   return (
