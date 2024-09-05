@@ -1,25 +1,25 @@
 [
   {
     "jobTitle": "Trampo",
-    "timeToFinish": "# dias para entregar",
+    "timeToFinish": 7,
     "price": 4500,
     "status": "Encerrado"
   },
   {
     "jobTitle": "Trabaio",
-    "timeToFinish": "# dias para entregar",
-    "price": 4500,
-    "status": "Em Andamento"
+    "timeToFinish": 4,
+    "price": 2500,
+    "status": "Encerrado"
   },
   {
     "jobTitle": "Trampo 2",
-    "timeToFinish": "# dias para entregar",
-    "price": 4500,
-    "status": "Em Andamento"
+    "timeToFinish": 3,
+    "price": 5000,
+    "status": "Na fila"
   },
   {
     "jobTitle": "Aqle maldito",
-    "timeToFinish": "# dias para entregar",
+    "timeToFinish": 24,
     "price": 4500,
     "status": "Em Andamento"
   }

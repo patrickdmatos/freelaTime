@@ -47,6 +47,9 @@ const theme = extendTheme({
           _hover: {
             bg: props.colorMode === "dark" ? "brand.600" : "brand.300",
           },
+          _active: {
+            bg: props.colorMode === "dark" ? "brand.400" : "brand.200",
+          },
         }),
       },
     },
