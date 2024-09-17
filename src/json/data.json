@@ -1,26 +1,49 @@
-[
-  {
-    "jobTitle": "Trampo",
-    "timeToFinish": 7,
-    "price": 4500,
-    "status": "Encerrado"
+{
+  "user": {
+    "name": "Mayk Brito",
+    "avatar": "https://github.com/maykbrito.png"
   },
-  {
-    "jobTitle": "Trabaio",
-    "timeToFinish": 4,
-    "price": 2500,
-    "status": "Encerrado"
+  "planning": {
+    "monthlyIncome": "13000",
+    "hoursPerDay": 6,
+    "daysAWeek": 5,
+    "vacationWeeks": 4
   },
-  {
-    "jobTitle": "Trampo 2",
-    "timeToFinish": 3,
-    "price": 5000,
-    "status": "Na fila"
-  },
-  {
-    "jobTitle": "Aqle maldito",
-    "timeToFinish": 24,
-    "price": 4500,
-    "status": "Em Andamento"
+  "projects": [
+    {
+      "id": "c408f501-4729-47a5-bf3a-3a6f4ed23e97",
+      "name": "Youtube Video",
+      "dailyHours": 2,
+      "totalHours": 6,
+      "createdAt": "2024-09-17T17:44:49.668Z"
+    },
+    {
+      "id": "98672be3-c5d1-4108-8b51-b7ac4e2bdff4",
+      "name": "Site",
+      "dailyHours": 1,
+      "totalHours": 4,
+      "createdAt": "2024-09-17T17:44:49.668Z"
+    },
+    {
+      "id": "91672a8a-9516-4fba-be29-6fe95a7aad5c",
+      "name": "trabaio",
+      "dailyHours": 6,
+      "totalHours": 12,
+      "createdAt": "2024-09-17T17:44:49.668Z"
+    },
+    {
+      "id": "946826c0-81c3-49e1-af76-b1f979e018d1",
+      "name": "Novo projeto",
+      "dailyHours": 1,
+      "totalHours": 2,
+      "createdAt": "2024-09-17T17:44:49.668Z"
+    }
+  ],
+  "currentProject": {
+    "id": "177a1c1c-6e2b-4c4e-a3b2-0e44bf6899f9",
+    "name": "Novo projeto",
+    "dailyHours": 1,
+    "totalHours": 2,
+    "createdAt": "2024-09-17T17:39:47.518Z"
   }
-]
+}

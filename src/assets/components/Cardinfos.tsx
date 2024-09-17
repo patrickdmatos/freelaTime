@@ -1,6 +1,5 @@
-import { Flex, Button, Text } from "@chakra-ui/react";
-import { AddIcon } from "@chakra-ui/icons";
-import ArrayJobs from "../../json/data.json";
+import { Flex, Text } from "@chakra-ui/react";
+import { projects } from "../../json/data.json";
 import { ButtonAddJob } from "./addJob";
 
 interface NavbarInfoProps {
@@ -33,11 +32,11 @@ const NavbarInfo = ({ value, description }: NavbarInfoProps) => {
 };
 
 export const ResumoJobInfos = () => {
-  const totalProjects = ArrayJobs.length;
-  const ongoingProjects = ArrayJobs.filter(
+  const totalProjects = projects.length;
+  const ongoingProjects = projects.filter(
     (job) => job.status === "Em Andamento"
   ).length;
-  const closedProjects = ArrayJobs.filter(
+  const closedProjects = projects.filter(
     (job) => job.status === "Encerrado"
   ).length;
 

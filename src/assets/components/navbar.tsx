@@ -1,7 +1,7 @@
 import { TimeIcon } from "@chakra-ui/icons";
 import { Card, Divider, Flex, Image, Text } from "@chakra-ui/react";
-import { CardJob } from "./CardJob";
 import { ResumoJobInfos } from "./Cardinfos";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
@@ -57,7 +57,7 @@ export const HomeNavbar = () => {
             <Text fontWeight={600} fontSize={"large"}>
               Patrick
             </Text>
-            <Text fontWeight={400} fontSize={"medium"}>
+            <Text as={Link} to="/profile" fontWeight={400} fontSize={"medium"}>
               Ver Perfil
             </Text>
           </Flex>
@@ -71,7 +71,6 @@ export const HomeNavbar = () => {
       </Flex>
       <Divider marginBlock={6} />
       <ResumoJobInfos />
-      <CardJob />
     </Flex>
   );
 };

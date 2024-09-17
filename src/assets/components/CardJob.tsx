@@ -1,14 +1,22 @@
 import { Button, Card, Grid, GridItem, Text, Flex } from "@chakra-ui/react";
-import ArrayJobs from "../../json/data.json";
+import { projects, planning } from "../../json/data.json";
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { StatusText } from "./statusText";
+
+// Calcula o tempo mensal considerando horas por dia e dias por semana
+const monthlyTime = planning.hoursPerDay * planning.daysAWeek * (52 / 12); // Aproximadamente 4.33 semanas por mês
+
+// Calcula o valor da hora de trabalho
+const priceHour = parseFloat(planning.monthlyIncome) / monthlyTime;
+
+console.log("preço", priceHour);
 
 export const CardJob = () => {
   return (
     <>
-      {ArrayJobs.map((objJob, index) => (
+      {projects.map((objJob) => (
         <Card
-          key={index}
+          key={objJob.id} // Melhor usar a ID única em vez do índice
           w={"100%"}
           minH={"6rem"}
           p={6}
@@ -17,10 +25,11 @@ export const CardJob = () => {
         >
           <Grid templateColumns="0.4fr 1fr 1.4fr 1fr 1.4fr 0.6fr" gap={4}>
             <GridItem gridArea={"0.3fr"}>
-              <Text opacity={0.6}>{index + 1}</Text>
+              <Text opacity={0.6}>{projects.indexOf(objJob) + 1}</Text>{" "}
+              {/* Mostra a posição na lista */}
             </GridItem>
             <GridItem>
-              <Text fontWeight={600}>{objJob.jobTitle}</Text>
+              <Text fontWeight={600}>{objJob.name}</Text>
             </GridItem>
             <GridItem>
               <Flex
@@ -32,8 +41,12 @@ export const CardJob = () => {
                   PRAZO
                 </Text>
                 <Text fontWeight={600}>
-                  {objJob.timeToFinish} dias para entrega
-                </Text>
+                  {objJob.dailyHours > 0
+                    ? objJob.totalHours / objJob.dailyHours
+                    : "N/A"}{" "}
+                  dias para entrega
+                </Text>{" "}
+                {/* Verifica se `dailyHours` é válido */}
               </Flex>
             </GridItem>
             <GridItem>
@@ -45,11 +58,17 @@ export const CardJob = () => {
                 <Text opacity={0.5} fontWeight={600}>
                   VALOR
                 </Text>
-                <Text fontWeight={600}>R$ {objJob.price},00</Text>
+                <Text fontWeight={600}>
+                  R${" "}
+                  {objJob.totalHours > 0
+                    ? (priceHour * objJob.totalHours).toFixed(2)
+                    : 0}
+                </Text>{" "}
+                {/* Verifica se `totalHours` é válido */}
               </Flex>
             </GridItem>
             <GridItem>
-              <StatusText statusJob={objJob.status} />
+              <StatusText statusJob={"ENCERRADO"} />
             </GridItem>
             <GridItem>
               <Flex gap={2}>

@@ -9,6 +9,7 @@ import Register from "./assets/pages/register/register";
 import PrivateRoute from "./PrivateRouter";
 import { AuthProvider } from "./AuthContext";
 import { Home } from "./assets/pages/Authenticated/Home/Home";
+import { Profile } from "./assets/pages/Authenticated/profile/Profile";
 
 // Define as rotas com proteção condicional
 const createRoutes = (): RouteObject[] => [
@@ -28,12 +29,10 @@ const createRoutes = (): RouteObject[] => [
     path: "/home",
     element: <PrivateRoute element={<Home />} />,
   },
-  // {
-  //   path: '/profile',
-  //   element: (
-  //     <PrivateRoute element={<Profile />} />
-  //   ),
-  // },
+  {
+    path: "/profile",
+    element: <PrivateRoute element={<Profile />} />,
+  },
 ];
 
 function App() {
